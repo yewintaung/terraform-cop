@@ -5,7 +5,7 @@ terraform {
     }
   }
   backend "pg" {
-    conn_str = "postgres://username:pwd@postgreDBhost/db_name?sslmode=disable"
+    conn_str = "postgres://admin:Admin123456@178.128.101.207/terraform_backend?sslmode=disable"
   }
 }
 
