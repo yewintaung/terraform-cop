@@ -25,3 +25,7 @@ terraform {
   }
 }
 ```
+<br>
+Run runner.sh to apply all terraform resources one shot.
+
+> sh runner.sh
