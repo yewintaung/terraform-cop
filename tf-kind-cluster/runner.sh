@@ -2,6 +2,10 @@
 
 set -e
 
+terraform init
+
+sleep 2
+
 terraform apply -auto-approve \
 -target=kind_cluster.default \
 -target=helm_release.metallb \
