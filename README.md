@@ -10,5 +10,5 @@
 [Terraform with kind, helm and kubernetes providers to create kind cluster with metallb installed](https://github.com/yewintaung/terraform-cop/tree/master/tf-kind-cluster).
 
 <br><br>
-Notion can be found in
+Notes can be found in
 [Notion](https://yewint.notion.site/Terraform-Backend-Types-5f970599539f4ab0bf0e84d261a9fc5b?pvs=4)
