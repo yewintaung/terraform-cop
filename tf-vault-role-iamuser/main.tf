@@ -1,7 +1,8 @@
 data "vault_auth_backends" "auth_list" {}
 
 resource "vault_aws_secret_backend" "aws" {
-  # administrator accessclea
+  # administrator access
+  path                      = "aws"
   access_key                = aws_iam_access_key.vault_admin_access_key.id
   secret_key                = aws_iam_access_key.vault_admin_access_key.secret
   region                    = "ap-southeast-1"
@@ -16,7 +17,14 @@ resource "vault_aws_secret_backend_role" "vpc_role" {
   policy_arns     = ["arn:aws:iam::aws:policy/AdministratorAccess"]
 }
 
+resource "time_sleep" "wait_before_fetching_creds" {
+  depends_on      = [vault_aws_secret_backend_role.vpc_role]
+  create_duration = "10s"
+}
+
 data "vault_aws_access_credentials" "vpc_role_creds" {
-  backend = vault_aws_secret_backend.aws.path
-  role    = vault_aws_secret_backend_role.vpc_role.name
+  depends_on = [time_sleep.wait_before_fetching_creds]
+  backend    = vault_aws_secret_backend.aws.path
+  role       = vault_aws_secret_backend_role.vpc_role.name
+  type       = "creds"
 }
