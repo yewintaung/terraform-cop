@@ -1,6 +1,21 @@
-*.lock.hcl
-.terraform
-terraform.tfstate
-terraform.tfstate.backup
+# directories
+.terraform/
 learn-terraform
 ssh-key
+kosai
+tf-vault-auth
+tf-authn-authz
+tf-aws-iam
+tf-foundation-deepdive
+tf-iam-user-module
+tf-iam-user
+tf-auth-demo-assumerole
+
+# files
+*.lock.hcl
+*.tfstate
+*.tfstate.*
+*.key
+
+# log
+*.log
